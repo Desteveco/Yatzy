@@ -12,9 +12,9 @@ class Yatzy:
     def yatzy(*dice):
         return Yatzy.FIFTY if dice.count(dice[0]) == 5 else Yatzy.ZERO
         
-    '''Rename variables to make the code more readable'''
-    '''Move an expression inline'''
-    '''Use return instead of a loop control variable'''
+    '''Rename variables to make the code more readable
+    Move an expression inline
+    Use return instead of a loop control variable'''
 
     @staticmethod
     def ones(*dice):
@@ -24,13 +24,15 @@ class Yatzy:
     '''Rename variables to make the code more readable'''
 
     @classmethod
-    def numbers(cls, n, *dice):
-        score = sum(n for i in dice if i == n)
-        return score
+    def sum_repeated_numbers(cls, n, *dice):
+        return sum(n for i in dice if i == n)
+        
+    '''Rename to a more significant method name
+    Move an expression inline'''
     
     @classmethod
     def twos(cls, *dice):
-        return cls.numbers(2, *dice)
+        return cls.sum_repeated_numbers(2, *dice)
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):
