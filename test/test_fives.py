@@ -7,7 +7,7 @@ def inyector():
     tirada = Yatzy(4, 5, 6, 4, 5)
     return tirada
 
-@pytest.mark.fives
+
 def test_fives(inyector):
     '''
     The player scores the sum of the dice that reads five
