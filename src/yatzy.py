@@ -72,7 +72,7 @@ class Yatzy:
                 sum = sum + 6
         return sum
 
-    def score_pair(self, d1, d2, d3, d4, d5):
+    def pair(self, d1, d2, d3, d4, d5):
         counts = [0] * 6
         counts[d1 - 1] += 1
         counts[d2 - 1] += 1
