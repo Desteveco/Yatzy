@@ -1,9 +1,12 @@
 class Yatzy:
 
+    ZERO = 0
+    FIFTY = 50
+
     @staticmethod
-    def chance(die1, die2, die3, die4, die5):
-        total = die1 + die2 + die3 + die4 + die5
-        return total
+    def chance(*dice):
+        return sum(dice)
+    '''Rename variable to make the code clearer'''
 
     @staticmethod
     def yatzy(*dice):
@@ -18,8 +21,7 @@ class Yatzy:
         
         ones_score = sum(1 for i in [d1, d2, d3, d4, d5] if i == 1)
         return ones_score
-    
-     
+
     def numbers(n, dice):
         score = sum(n for i in dice if i == n)
         return score
@@ -74,7 +76,7 @@ class Yatzy:
                 sum = sum + 6
         return sum
 
-    def pair(self, d1, d2, d3, d4, d5):
+    def score_pair(self, d1, d2, d3, d4, d5):
         counts = [0] * 6
         counts[d1 - 1] += 1
         counts[d2 - 1] += 1
