@@ -6,12 +6,8 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0] * (len(dice) + 1)
-        for die in dice:
-            counts[die - 1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
+    def yatzy(d1, d2, d3, d4, d5):
+        if d1 == d2 == d3 == d4 == d5:
                 return 50
         return 0
 
