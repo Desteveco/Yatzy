@@ -17,15 +17,15 @@ class Yatzy:
         ones_score = sum(1 for i in [d1, d2, d3, d4, d5] if i == 1)
         return ones_score
     
-    @staticmethod  
+     
     def numbers(n, dice):
         score = sum(n for i in dice if i == n)
         return score
     
-    @staticmethod
-    def twos(d1, d2, d3, d4, d5):
+    @classmethod
+    def twos(cls, d1, d2, d3, d4, d5):
         dice = [d1, d2, d3, d4, d5]
-        return Yatzy.numbers(2, dice)
+        return cls.numbers(2, dice)
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):
