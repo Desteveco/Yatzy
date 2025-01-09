@@ -17,10 +17,11 @@ class Yatzy:
     '''Use return instead of a loop control variable'''
 
     @staticmethod
-    def ones(d1, d2, d3, d4, d5):
+    def ones(*dice):
         
-        ones_score = sum(1 for i in [d1, d2, d3, d4, d5] if i == 1)
+        ones_score = sum(1 for i in dice if i == 1)
         return ones_score
+    '''Rename variables to make the code more readable'''
 
     def numbers(n, dice):
         score = sum(n for i in dice if i == n)
