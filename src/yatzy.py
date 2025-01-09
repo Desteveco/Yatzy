@@ -23,14 +23,14 @@ class Yatzy:
         return ones_score
     '''Rename variables to make the code more readable'''
 
-    def numbers(n, dice):
+    @classmethod
+    def numbers(cls, n, *dice):
         score = sum(n for i in dice if i == n)
         return score
     
     @classmethod
-    def twos(cls, d1, d2, d3, d4, d5):
-        dice = [d1, d2, d3, d4, d5]
-        return cls.numbers(2, dice)
+    def twos(cls, *dice):
+        return cls.numbers(2, *dice)
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):
@@ -198,3 +198,11 @@ class Yatzy:
             return _2_at * 2 + _3_at * 3
         else:
             return 0
+        
+
+
+if __name__ == "__main__": 
+    
+    
+    assert 0 == Yatzy.twos(3, 3, 3, 4, 5)
+    assert 4 == Yatzy.twos(2, 3, 2, 5, 1)
