@@ -6,10 +6,12 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(d1, d2, d3, d4, d5):
-        if d1 == d2 == d3 == d4 == d5:
-                return 50
-        return 0
+    def yatzy(*dice):
+        return Yatzy.FIFTY if dice.count(dice[0]) == 5 else Yatzy.ZERO
+        
+    '''Rename variables to make the code more readable'''
+    '''Move an expression inline'''
+    '''Use return instead of a loop control variable'''
 
     @staticmethod
     def ones(d1, d2, d3, d4, d5):
