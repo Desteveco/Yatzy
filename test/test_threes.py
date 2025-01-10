@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.threes
 def test_threes():
     '''
     The player scores the sum of the dice that reads three

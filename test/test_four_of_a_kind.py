@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.four_kind
 def test_four_of_a_kind():
     assert 8 == Yatzy.four_of_a_kind(2, 2, 2, 2, 5)
     assert 0 == Yatzy.four_of_a_kind(2, 2, 2, 5, 5)

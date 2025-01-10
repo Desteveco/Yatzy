@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.sixes
 def test_sixes_test():
     assert 0 == Yatzy.sixes(4, 4, 4, 5, 5)
     assert 6 == Yatzy.sixes(4, 4, 6, 5, 5)

@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.yatzy
 def test_yatzy():
     '''
     Yatzy
