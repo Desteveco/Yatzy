@@ -25,7 +25,7 @@ class Yatzy:
     '''Rename variables to make the code more readable'''
 
     @classmethod
-    def sum_repeated_numbers(cls, n, *dice):
+    def __sum_repeated_numbers(cls, n, *dice):
         return sum(n for i in dice if i == n)
         
     '''Rename to a more significant method name
@@ -33,7 +33,7 @@ class Yatzy:
     
     @classmethod
     def twos(cls, *dice):
-        return cls.sum_repeated_numbers(2, *dice)
+        return cls.__sum_repeated_numbers(2, *dice)
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):
