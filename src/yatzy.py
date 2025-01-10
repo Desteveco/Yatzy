@@ -17,12 +17,13 @@ class Yatzy:
     Move an expression inline
     Use return instead of a loop control variable'''
 
-    @staticmethod
-    def ones(*dice):
-        
-        ones_score = sum(1 for i in dice if i == 1)
-        return ones_score
-    '''Rename variables to make the code more readable'''
+    @classmethod
+    def ones(cls, *dice):
+        return cls.__sum_repeated_numbers(Pip.ONE.value, *dice)
+    '''Convert a set of type codes to a class
+    Combine similar routines by a paramenter
+    Change value objets to reference objects
+    '''
 
     @classmethod
     def __sum_repeated_numbers(cls, n, *dice):
