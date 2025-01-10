@@ -38,7 +38,7 @@ class Yatzy:
 
     @classmethod
     def threes(cls, *dice):
-        return cls.__sum_repeated_numbers(Pip.TWO.value, *dice)
+        return cls.__sum_repeated_numbers(Pip.THREE.value, *dice)
     '''Convert a set of type codes to a class
     Combine similar routines by a paramenter
     Change value objets to reference objects
@@ -60,13 +60,13 @@ class Yatzy:
     Change value objets to reference objects
     '''
 
-    def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)):
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+    @classmethod
+    def fives(cls, *dice):
+        return cls.__sum_repeated_numbers(Pip.FIVE.value, *dice)
+    '''Convert a set of type codes to a class
+    Combine similar routines by a paramenter
+    Change value objets to reference objects
+    '''
 
     def sixes(self):
         sum = 0
