@@ -57,12 +57,13 @@ class Yatzy:
         self.dice[3] = d4
         self.dice[4] = _5
 
-    def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4):
-                sum += 4
-        return sum
+    @classmethod
+    def fours(cls, *dice):
+        return cls.__sum_repeated_numbers(Pip.FOUR.value, *dice)
+    '''Convert a set of type codes to a class
+    Combine similar routines by a paramenter
+    Change value objets to reference objects
+    '''
 
     def fives(self):
         s = 0
