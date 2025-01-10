@@ -68,12 +68,13 @@ class Yatzy:
     Change value objets to reference objects
     '''
 
-    def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)):
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+    @classmethod
+    def sixes(cls, *dice):
+        return cls.__sum_repeated_numbers(Pip.SIX.value, *dice)
+    '''Convert a set of type codes to a class
+    Combine similar routines by a paramenter
+    Change value objets to reference objects
+    '''
 
     def score_pair(self, d1, d2, d3, d4, d5):
         counts = [0] * 6
