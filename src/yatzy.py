@@ -70,11 +70,11 @@ class Yatzy:
     '''
     @staticmethod
     def __pairs(*dice):
-        return 2*max([number for number in dice if dice.count(number) >= 2])    
+        return set([number for number in dice if dice.count(number) >= Pip.TWO.value])
     
     @staticmethod
     def score_pair(*dice):
-        return Yatzy.__pairs(*dice)
+        return Pip.TWO.value*max(Yatzy.__pairs(*dice))
 
     @staticmethod
     def two_pairs(d1, d2, d3, d4, d5):
