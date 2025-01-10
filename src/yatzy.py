@@ -1,3 +1,4 @@
+from .pips import Pip
 class Yatzy:
 
     ZERO = 0
