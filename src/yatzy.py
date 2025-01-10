@@ -36,20 +36,13 @@ class Yatzy:
     def twos(cls, *dice):
         return cls.__sum_repeated_numbers(Pip.TWO.value, *dice)
 
-    @staticmethod
-    def threes(d1, d2, d3, d4, d5):
-        s = 0
-        if (d1 == 3):
-            s += 3
-        if (d2 == 3):
-            s += 3
-        if (d3 == 3):
-            s += 3
-        if (d4 == 3):
-            s += 3
-        if (d5 == 3):
-            s += 3
-        return s
+    @classmethod
+    def threes(cls, *dice):
+        return cls.__sum_repeated_numbers(Pip.TWO.value, *dice)
+    '''Convert a set of type codes to a class
+    Combine similar routines by a paramenter
+    Change value objets to reference objects
+    '''
 
     def __init__(self, d1=0, d2=0, d3=0, d4=0, _5=0):
         self.dice = [0] * 5
