@@ -34,7 +34,7 @@ class Yatzy:
     
     @classmethod
     def twos(cls, *dice):
-        return cls.__sum_repeated_numbers(2, *dice)
+        return cls.__sum_repeated_numbers(Pip.TWO.value, *dice)
 
     @staticmethod
     def threes(d1, d2, d3, d4, d5):
