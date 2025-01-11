@@ -90,17 +90,9 @@ class Yatzy:
         
 
     @staticmethod
-    def three_of_a_kind(d1, d2, d3, d4, d5):
-        t = [0] * 6
-        t[d1 - 1] += 1
-        t[d2 - 1] += 1
-        t[d3 - 1] += 1
-        t[d4 - 1] += 1
-        t[d5 - 1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i + 1) * 3
-        return 0
+    def three_of_a_kind(*dice):
+        repeated = Yatzy.__repeated(*dice, times=Pip.THREE.value)
+        return Pip.THREE.value * max(repeated) if repeated else Yatzy.ZERO
 
     @staticmethod
     def small_straight(d1, d2, d3, d4, d5):
