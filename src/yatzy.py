@@ -69,16 +69,17 @@ class Yatzy:
     Change value objets to reference objects
     '''
     @staticmethod
-    def __pairs(*dice):
-        return set([number for number in dice if dice.count(number) >= Pip.TWO.value])
+    def __repeated(*dice, times):
+        return set([number for number in dice if dice.count(number) >= times])
     
     @staticmethod
     def score_pair(*dice):
-        return Pip.TWO.value*max(Yatzy.__pairs(*dice))
+        return Pip.TWO.value*max(Yatzy.__repeated(*dice, times=Pip.TWO.value))
 
     @staticmethod
     def two_pairs(*dice):
-        pairs = Yatzy.__pairs(*dice)
+        TWO = Pip.TWO.value
+        pairs = Yatzy.__repeated(*dice, times=TWO)
         return Pip.TWO.value*sum(pairs) if len(pairs) == Pip.TWO.value else Yatzy.ZERO
         
 
