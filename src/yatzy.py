@@ -69,31 +69,25 @@ class Yatzy:
     Change value objets to reference objects
     '''
     @staticmethod
-    def __pairs(*dice):
-        return set([number for number in dice if dice.count(number) >= Pip.TWO.value])
+    def __repeated(*dice, times):
+        return set([number for number in dice if dice.count(number) >= times])
     
     @staticmethod
     def score_pair(*dice):
-        return Pip.TWO.value*max(Yatzy.__pairs(*dice))
+        return Pip.TWO.value*max(Yatzy.__repeated(*dice, times=Pip.TWO.value))
 
     @staticmethod
     def two_pairs(*dice):
-        pairs = Yatzy.__pairs(*dice)
+        TWO = Pip.TWO.value
+        pairs = Yatzy.__repeated(*dice, times=TWO)
         return Pip.TWO.value*sum(pairs) if len(pairs) == Pip.TWO.value else Yatzy.ZERO
         
 
     @staticmethod
-    def four_of_a_kind(_1, _2, d3, d4, d5):
-        tallies = [0] * 6
-        tallies[_1 - 1] += 1
-        tallies[_2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i + 1) * 4
-        return 0
+    def four_of_a_kind(*dice):
+        repeated = Yatzy.__repeated(*dice, times=Pip.FOUR.value)
+        return Pip.FOUR.value * max(repeated) if repeated else Yatzy.ZERO
+        
 
     @staticmethod
     def three_of_a_kind(d1, d2, d3, d4, d5):
