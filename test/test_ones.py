@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.ones
 def test_ones():
     '''
     The player scores the sum of the dice that reads one

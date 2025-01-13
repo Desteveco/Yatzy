@@ -1,6 +1,7 @@
 import pytest
 from src.yatzy import Yatzy
 
+@pytest.mark.pairs
 def test_two_pairs():
     '''
     Two pairs:
