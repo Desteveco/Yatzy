@@ -69,29 +69,29 @@ class Yatzy:
     Change value objets to reference objects
     '''
     @staticmethod
-    def __repeated(*dice, times):
+    def __numbers_repeated(*dice, times):
         return set([number for number in dice if dice.count(number) >= times])
     
     @staticmethod
     def score_pair(*dice):
-        return Pip.TWO.value*max(Yatzy.__repeated(*dice, times=Pip.TWO.value))
+        return Pip.TWO.value*max(Yatzy.__numbers_repeated(*dice, times=Pip.TWO.value))
 
     @staticmethod
     def two_pairs(*dice):
         TWO = Pip.TWO.value
-        pairs = Yatzy.__repeated(*dice, times=TWO)
+        pairs = Yatzy.__numbers_repeated(*dice, times=TWO)
         return Pip.TWO.value*sum(pairs) if len(pairs) == Pip.TWO.value else Yatzy.ZERO
         
 
     @staticmethod
     def four_of_a_kind(*dice):
-        repeated = Yatzy.__repeated(*dice, times=Pip.FOUR.value)
+        repeated = Yatzy.__numbers_repeated(*dice, times=Pip.FOUR.value)
         return Pip.FOUR.value * max(repeated) if repeated else Yatzy.ZERO
         
 
     @staticmethod
     def three_of_a_kind(*dice):
-        repeated = Yatzy.__repeated(*dice, times=Pip.THREE.value)
+        repeated = Yatzy.__numbers_repeated(*dice, times=Pip.THREE.value)
         return Pip.THREE.value * max(repeated) if repeated else Yatzy.ZERO
 
     @staticmethod
@@ -127,37 +127,14 @@ class Yatzy:
         return 0
 
     @staticmethod
-    def fullHouse(d1, d2, d3, d4, d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
+    def full_house(*dice):
+        if Yatzy.__exactly_numbers_repeated(*dice, times=Pip.THREE.value) and Yatzy.__exactly_numbers_repeated(*dice, times=Pip.TWO.value) and Yatzy.yatzy(*dice) != Yatzy.FIFTY:
+            return Yatzy.chance(*dice) 
+        return Yatzy.ZERO
 
-        tallies = [0] * 6
-        tallies[d1 - 1] += 1
-        tallies[d2 - 1] += 1
-        tallies[d3 - 1] += 1
-        tallies[d4 - 1] += 1
-        tallies[d5 - 1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2):
-                _2 = True
-                _2_at = i + 1
-
-        for i in range(6):
-            if (tallies[i] == 3):
-                _3 = True
-                _3_at = i + 1
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
-        
-
+    @staticmethod    
+    def __exactly_numbers_repeated(*dice, times):
+        return set([number for number in dice if dice.count(number) == times])
 
 if __name__ == "__main__": 
     
