@@ -11,7 +11,7 @@ class Yatzy:
 
     @staticmethod
     def yatzy(*dice):
-        return Yatzy.FIFTY if dice.count(dice[0]) == 5 else Yatzy.ZERO  
+        return Yatzy.FIFTY if len(set(dice)) == 1 else Yatzy.ZERO  
     '''Rename variables to make the code more readable
     Move an expression inline
     Use return instead of a loop control variable'''
@@ -94,7 +94,7 @@ class Yatzy:
 
     @staticmethod
     def small_straight(*dice):
-        if set(dice) == {i for i in range(Pip.ONE.value, Pip.SIX.value)}:
+        if set(dice) == Pip.small_straight(*dice):
             return Yatzy.chance(*dice)
         return Yatzy.ZERO
     '''Move an expression inline
@@ -102,7 +102,7 @@ class Yatzy:
 
     @staticmethod
     def large_straight(*dice):
-        if set(dice) == {i for i in range(Pip.TWO.value, Pip.SEVEN.value)}:
+        if set(dice) == Pip.large_straight(*dice):
             return Yatzy.chance(*dice)
         return Yatzy.ZERO
     '''Move an expression inline
