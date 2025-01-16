@@ -77,7 +77,7 @@ class Yatzy:
     def two_pairs(*dice):
         TWO = Pip.TWO.value
         pairs = Yatzy.__numbers_repeated(*dice, times=TWO)
-        return Pip.TWO.value*sum(pairs) if len(pairs) == Pip.TWO.value else Yatzy.ZERO
+        return TWO*sum(pairs) if len(pairs) == TWO else Yatzy.ZERO
     '''Combine similar routines by parameterizing them'''
 
     @staticmethod
