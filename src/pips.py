@@ -9,3 +9,9 @@ class Pip(Enum):
     FIVE = 5
     SIX = 6
     SEVEN = 7
+
+    def small_straight(*dice):
+        return {i for i in range(Pip.ONE.value, Pip.SIX.value)}
+    
+    def large_straight(*dice):
+        return {i for i in range(Pip.TWO.value, Pip.SEVEN.value)}
